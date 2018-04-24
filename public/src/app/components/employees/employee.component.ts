@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EmpDetailComponent } from '../employee-detail/employee-detail.component';
-
+import { EMP } from './mock-employees';
 @Component({
     selector: 'employee-list',
     templateUrl: './employee.component.html'
@@ -13,24 +13,25 @@ export class EmpListComponent {
         name: "",
         email: ""
     }
-    empList = [
-        {
-            "name": "Neha",
-            "email": "neha@yopmail.com"
-        },
-        {
-            "name": "Sneha",
-            "email": "sneha@yopmail.com"
-        },
-        {
-            "name": "Tina",
-            "email": "tina@yopmail.com"
-        },
-        {
-            "name": "Heena",
-            "email": "heena@yopmail.com"
-        }
-    ];
+    empList=EMP;
+    // empList = [
+    //     {
+    //         "name": "Neha",
+    //         "email": "neha@yopmail.com"
+    //     },
+    //     {
+    //         "name": "Sneha",
+    //         "email": "sneha@yopmail.com"
+    //     },
+    //     {
+    //         "name": "Tina",
+    //         "email": "tina@yopmail.com"
+    //     },
+    //     {
+    //         "name": "Heena",
+    //         "email": "heena@yopmail.com"
+    //     }
+    // ];
 
     //---------------------------------------------------
     //------------- Function to Add Employee-------------

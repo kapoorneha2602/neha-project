@@ -173,6 +173,7 @@ module.exports = "hello <employee-detail></employee-detail> in emp detail\n<div 
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mock_employees__ = __webpack_require__("./src/app/components/employees/mock-employees.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -184,6 +185,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var EmpListComponent = /** @class */ (function () {
     function EmpListComponent(toastr) {
         this.toastr = toastr;
@@ -191,25 +193,26 @@ var EmpListComponent = /** @class */ (function () {
             name: "",
             email: ""
         };
-        this.empList = [
-            {
-                "name": "Neha",
-                "email": "neha@yopmail.com"
-            },
-            {
-                "name": "Sneha",
-                "email": "sneha@yopmail.com"
-            },
-            {
-                "name": "Tina",
-                "email": "tina@yopmail.com"
-            },
-            {
-                "name": "Heena",
-                "email": "heena@yopmail.com"
-            }
-        ];
+        this.empList = __WEBPACK_IMPORTED_MODULE_2__mock_employees__["a" /* EMP */];
     }
+    // empList = [
+    //     {
+    //         "name": "Neha",
+    //         "email": "neha@yopmail.com"
+    //     },
+    //     {
+    //         "name": "Sneha",
+    //         "email": "sneha@yopmail.com"
+    //     },
+    //     {
+    //         "name": "Tina",
+    //         "email": "tina@yopmail.com"
+    //     },
+    //     {
+    //         "name": "Heena",
+    //         "email": "heena@yopmail.com"
+    //     }
+    // ];
     //---------------------------------------------------
     //------------- Function to Add Employee-------------
     //---------------------------------------------------
@@ -233,6 +236,20 @@ var EmpListComponent = /** @class */ (function () {
     return EmpListComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/components/employees/mock-employees.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EMP; });
+var EMP = [
+    { name: 'Mr. Nice', email: 'nice@yopmail.com' },
+    { name: 'Mr. Tice', email: 'tice@yopmail.com' },
+    { name: 'Mr. Slice', email: 'slnice@yopmail.com' },
+];
 
 
 /***/ }),
