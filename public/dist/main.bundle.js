@@ -27,6 +27,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_employees_employee_component__ = __webpack_require__("./src/app/components/employees/employee.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__ = __webpack_require__("./src/app/components/employee-detail/employee-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_posts_posts_component__ = __webpack_require__("./src/app/components/posts/posts.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_department_departments_components__ = __webpack_require__("./src/app/components/department/departments.components.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,11 +39,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: '/emp', pathMatch: 'full' },
     { path: 'emp', component: __WEBPACK_IMPORTED_MODULE_2__components_employees_employee_component__["a" /* EmpListComponent */] },
     { path: 'empDetail', component: __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */] },
-    { path: 'posts', component: __WEBPACK_IMPORTED_MODULE_4__components_posts_posts_component__["a" /* PostListComponent */] }
+    { path: 'posts', component: __WEBPACK_IMPORTED_MODULE_4__components_posts_posts_component__["a" /* PostListComponent */] },
+    { path: 'department', component: __WEBPACK_IMPORTED_MODULE_5__components_department_departments_components__["a" /* DepartmentComponent */] }
     // { path: 'detail/:id', component: HeroDetailComponent },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -126,12 +129,16 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_posts_posts_component__ = __webpack_require__("./src/app/components/posts/posts.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_posts_posts_service__ = __webpack_require__("./src/app/components/posts/posts.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_department_department_service__ = __webpack_require__("./src/app/components/department/department.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_department_departments_components__ = __webpack_require__("./src/app/components/department/departments.components.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -156,7 +163,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__components_employees_employee_component__["a" /* EmpListComponent */],
                 __WEBPACK_IMPORTED_MODULE_4__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */],
                 __WEBPACK_IMPORTED_MODULE_5__components_header_bar_header_bar_component__["a" /* HeaderBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__components_posts_posts_component__["a" /* PostListComponent */]
+                __WEBPACK_IMPORTED_MODULE_12__components_posts_posts_component__["a" /* PostListComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_department_departments_components__["a" /* DepartmentComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -166,7 +174,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_11__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_9__components_employees_employee_service__["a" /* EmpService */], __WEBPACK_IMPORTED_MODULE_13__components_posts_posts_service__["a" /* PostService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_9__components_employees_employee_service__["a" /* EmpService */], __WEBPACK_IMPORTED_MODULE_13__components_posts_posts_service__["a" /* PostService */], __WEBPACK_IMPORTED_MODULE_14__components_department_department_service__["a" /* DepartmentService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -177,10 +185,104 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/department/department.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DepartmentService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DepartmentService = /** @class */ (function () {
+    function DepartmentService(http) {
+        this.http = http;
+    }
+    DepartmentService.prototype.getAllDepartments = function () {
+        return this.http.get('/api/department')
+            .map(function (res) { return res || []; });
+    };
+    DepartmentService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], DepartmentService);
+    return DepartmentService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/department/departments.component.html":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/department/departments.components.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DepartmentComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__department_service__ = __webpack_require__("./src/app/components/department/department.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DepartmentComponent = /** @class */ (function () {
+    function DepartmentComponent(toastr, deptService) {
+        this.toastr = toastr;
+        this.deptService = deptService;
+        console.log('in post component');
+    }
+    DepartmentComponent.prototype.ngOnInit = function () {
+        this.getAllDepartment();
+    };
+    DepartmentComponent.prototype.getAllDepartment = function () {
+        var _this = this;
+        this.deptService.getAllDepartments()
+            .subscribe(function (departments) { return _this.departments = departments; });
+    };
+    DepartmentComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
+            selector: 'department-list',
+            template: __webpack_require__("./src/app/components/department/departments.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ngx_toastr__["b" /* ToastrService */], __WEBPACK_IMPORTED_MODULE_2__department_service__["a" /* DepartmentService */]])
+    ], DepartmentComponent);
+    return DepartmentComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/employee-detail/employee-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "in emp detail\n\n<!-- Detail of Selected Employee -->\n<div *ngIf=\"empData\" class=\"row mt-2\">\n    <h2>{{ empData.name | uppercase }} Details</h2>\n    <div>\n        <span>Email </span>{{empData.email}}</div>\n</div>"
+module.exports = "in emp detail\n\n<!-- Detail of Selected Employee -->\n<div *ngIf=\"empData\" class=\"row mt-2\">\n    <h2>{{ empData.name | uppercase }} Details</h2>\n    <div>\n        <span>Email </span>{{empData.email}}</div>\n</div>\n\n"
 
 /***/ }),
 
@@ -386,7 +488,7 @@ var EMP = [
 /***/ "./src/app/components/header-bar/header-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n        <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n          aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n    \n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n              <a class=\"nav-link\" href=\"#\">Home\n                <span class=\"sr-only\">(current)</span>\n              </a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink=\"/posts\">Posts</a>\n            </li>\n            <li class=\"nav-item dropdown\">\n              <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                aria-expanded=\"false\">\n                Dropdown\n              </a>\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                <a class=\"dropdown-item\" routerLink=\"/posts\">Posts</a>\n                <!-- <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                <div class=\"dropdown-divider\"></div>\n                <a class=\"dropdown-item\" href=\"#\">Something else here</a> -->\n              </div>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link disabled\" href=\"#\">Disabled</a>\n            </li>\n          </ul>\n          <form class=\"form-inline my-2 my-lg-0\">\n            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n          </form>\n        </div>\n      </nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n  <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/posts\">Posts</a>\n      </li>\n\n\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/department\">Department</a>\n      </li>\n\n\n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">\n          Dropdown\n        </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n          <a class=\"dropdown-item\" routerLink=\"/posts\">Posts</a>\n          <!-- <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                <div class=\"dropdown-divider\"></div>\n                <a class=\"dropdown-item\" href=\"#\">Something else here</a> -->\n        </div>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link disabled\" href=\"#\">Disabled</a>\n      </li>\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -427,7 +529,7 @@ var HeaderBarComponent = /** @class */ (function () {
 /***/ "./src/app/components/posts/posts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Post List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Id</th>\n                    <th>Title</th>\n                    <!-- <th>Email</th>\n                    <th>Actions</th> -->\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let post of posts;let i = index\">\n                    <td>{{post.id}}</td>\n                    <td>{{post.title}}</td>\n                    <!-- <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td> -->\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>"
+module.exports = "<div class=\"container\">\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Hit Third Party Apu for Post List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Id</th>\n                    <th>Title</th>\n                    <!-- <th>Email</th>\n                    <th>Actions</th> -->\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let post of posts;let i = index\">\n                    <td>{{post.id}}</td>\n                    <td>{{post.title}}</td>\n                    <!-- <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td> -->\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>"
 
 /***/ }),
 

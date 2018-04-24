@@ -33,4 +33,31 @@ router.get('/posts', (req, res) => {
     });
 });
 
+
+
+
+
+// Get json data
+router.get('/department', (req, res) => {
+  let arr=[
+    {
+      id:1,
+      owner:"Amit",
+      name:"Finance"
+    },
+    {
+      id:2,
+      owner:"Rohit",
+      name:"Engineer"
+    }
+    ,
+    {
+      id:3,
+      owner:"Mohit",
+      name:"Manager"
+    }
+  ];
+  res.send(arr);
+});
+
 module.exports = router;

@@ -18,13 +18,19 @@ import { HttpClientModule }    from '@angular/common/http';
 import { PostListComponent } from './components/posts/posts.component';
 import { PostService } from './components/posts/posts.service';
 
+
+import { DepartmentService } from './components/department/department.service';
+import { DepartmentComponent } from './components/department/departments.components';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     EmpListComponent,
     EmpDetailComponent,
     HeaderBarComponent,
-    PostListComponent
+    PostListComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { PostService } from './components/posts/posts.service';
     AppRoutingModule, // ToastrModule added
     HttpClientModule
   ],
-  providers: [EmpService,PostService],
+  providers: [EmpService,PostService,DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
