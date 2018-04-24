@@ -227,7 +227,7 @@ var DepartmentService = /** @class */ (function () {
 /***/ "./src/app/components/department/departments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<div class=\"container\">\n    <!-- List of Departments -->\n    <div class=\"row mt-2\">\n        <h4>Department List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Id</th>\n                    <th>Department</th>\n                    <th>Owner</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let dept of departments;let i = index\">\n                    <td>{{dept.id}}</td>\n                    <td>{{dept.name}}</td>\n                    <td>{{dept.owner}}</td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -529,7 +529,7 @@ var HeaderBarComponent = /** @class */ (function () {
 /***/ "./src/app/components/posts/posts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Hit Third Party Apu for Post List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Id</th>\n                    <th>Title</th>\n                    <!-- <th>Email</th>\n                    <th>Actions</th> -->\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let post of posts;let i = index\">\n                    <td>{{post.id}}</td>\n                    <td>{{post.title}}</td>\n                    <!-- <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td> -->\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>"
+module.exports = "<div class=\"container\">\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Post List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Id</th>\n                    <th>Title</th>\n                    <!-- <th>Email</th>\n                    <th>Actions</th> -->\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let post of posts;let i = index\">\n                    <td>{{post.id}}</td>\n                    <td>{{post.title}}</td>\n                    <!-- <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td> -->\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>"
 
 /***/ }),
 

@@ -1,0 +1,22 @@
+<div class="container">
+    <!-- List of Departments -->
+    <div class="row mt-2">
+        <h4>Department List</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Department</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dept of departments;let i = index">
+                    <td>{{dept.id}}</td>
+                    <td>{{dept.name}}</td>
+                    <td>{{dept.owner}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
