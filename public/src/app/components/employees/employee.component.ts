@@ -11,7 +11,7 @@ import { Employee } from './employee';
     templateUrl: './employee.component.html'
 })
 export class EmpListComponent {
-    posts: any = [];
+    // posts: any = [];
     selectedEmp: any;
     empList = [];
 
@@ -23,19 +23,18 @@ export class EmpListComponent {
     // empList = EMP;
     ngOnInit() {
         this.getEmployees();
-        this.getData();
     }
 
 
 
-    getData(): void {
+    // getData(): void {
 
 
-        this.empService.getAllPosts()
-        .subscribe(posts => this.posts = posts);
+    //     this.empService.getAllPosts()
+    //     .subscribe(posts => this.posts = posts);
 
 
-    }
+    // }
 
 
     getEmployees(): void {

@@ -26,21 +26,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_employees_employee_component__ = __webpack_require__("./src/app/components/employees/employee.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__ = __webpack_require__("./src/app/components/employee-detail/employee-detail.component.ts");
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_posts_posts_component__ = __webpack_require__("./src/app/components/posts/posts.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-// @NgModule({
-//   imports: [
-//     CommonModule
-//   ],
-//   declarations: []
-// })
-// export class AppRoutingModule { }
+
 
 
 
@@ -48,9 +41,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var routes = [
     { path: '', redirectTo: '/emp', pathMatch: 'full' },
     { path: 'emp', component: __WEBPACK_IMPORTED_MODULE_2__components_employees_employee_component__["a" /* EmpListComponent */] },
-    { path: 'empDetail', component: __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */] }
+    { path: 'empDetail', component: __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */] },
+    { path: 'posts', component: __WEBPACK_IMPORTED_MODULE_4__components_posts_posts_component__["a" /* PostListComponent */] }
     // { path: 'detail/:id', component: HeroDetailComponent },
-    // { path: 'heroes', component: HeroesComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -78,7 +71,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n<!-- <employee-list></employee-list> -->\n\n<router-outlet></router-outlet>"
+module.exports = "<header-bar-component></header-bar-component>\n<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n<!-- <employee-list></employee-list> -->\n\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -95,6 +88,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+// import { EmpListComponent } from './components/employees/employee.component';
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'Employee Portal';
@@ -123,18 +117,24 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("./src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_employees_employee_component__ = __webpack_require__("./src/app/components/employees/employee.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_employee_detail_employee_detail_component__ = __webpack_require__("./src/app/components/employee-detail/employee-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_header_bar_header_bar_component__ = __webpack_require__("./src/app/components/header-bar/header-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_employees_employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_posts_posts_component__ = __webpack_require__("./src/app/components/posts/posts.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_posts_posts_service__ = __webpack_require__("./src/app/components/posts/posts.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -154,17 +154,19 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_3__components_employees_employee_component__["a" /* EmpListComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__components_header_bar_header_bar_component__["a" /* HeaderBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__components_posts_posts_component__["a" /* PostListComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__["a" /* ToastrModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_8_ngx_toastr__["a" /* ToastrModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_11__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__["a" /* EmpService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_9__components_employees_employee_service__["a" /* EmpService */], __WEBPACK_IMPORTED_MODULE_13__components_posts_posts_service__["a" /* PostService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -226,7 +228,7 @@ var EmpDetailComponent = /** @class */ (function () {
 /***/ "./src/app/components/employees/employee.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <!-- Add Employee -->\n    <div class=\"row\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <form #empForm=\"ngForm\" class=\"form-inline\">\n                    <div class=\"form-group mb-2\">\n                        <input type=\"text\" class=\"form-control w100\" id=\"name\" required [(ngModel)]=\"model.name\" name=\"name\" placeholder=\"Name\" #name=\"ngModel\">\n                        <span [hidden]=\"name.valid || name.pristine\" class=\"p-2 alert-danger rounded\"> Name is required\n                        </span>\n                    </div>\n                    <div class=\"form-group mx-sm-3 mb-2\">\n                        <input type=\"text\" placeholder=\"Email\" id=\"email\" required [(ngModel)]=\"model.email\" name=\"email\" class=\"form-control w100\"\n                            #email=\"ngModel\">\n                        <div class=\"form-control\" [hidden]=\"email.valid || email.pristine\" class=\"p-2 alert-danger rounded\">\n                            Email is required\n                        </div>\n                    </div>\n                    <button type=\"button\" [disabled]=\"!empForm.form.valid\" class=\"btn btn-primary mb-2\" (click)=\"addEmployee()\">Add</button>\n                </form>\n            </div>\n        </div>\n    </div>\n\n\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Employee List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Email</th>\n                    <th>Actions</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let emp of empList;let i = index\">\n                    <td>{{emp.name}}</td>\n                    <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div class=\"row\">\n        <div *ngFor=\"let p of posts;\">\n            <div>{{p.title}}</div>\n        </div>\n    </div>\n</div>\n<employee-detail [empData]=\"selectedEmp\"></employee-detail>"
+module.exports = "<div class=\"container\">\n    <!-- Add Employee -->\n    <div class=\"row\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <form #empForm=\"ngForm\" class=\"form-inline\">\n                    <div class=\"form-group mb-2\">\n                        <input type=\"text\" class=\"form-control w100\" id=\"name\" required [(ngModel)]=\"model.name\" name=\"name\" placeholder=\"Name\" #name=\"ngModel\">\n                        <span [hidden]=\"name.valid || name.pristine\" class=\"p-2 alert-danger rounded\"> Name is required\n                        </span>\n                    </div>\n                    <div class=\"form-group mx-sm-3 mb-2\">\n                        <input type=\"text\" placeholder=\"Email\" id=\"email\" required [(ngModel)]=\"model.email\" name=\"email\" class=\"form-control w100\"\n                            #email=\"ngModel\">\n                        <div class=\"form-control\" [hidden]=\"email.valid || email.pristine\" class=\"p-2 alert-danger rounded\">\n                            Email is required\n                        </div>\n                    </div>\n                    <button type=\"button\" [disabled]=\"!empForm.form.valid\" class=\"btn btn-primary mb-2\" (click)=\"addEmployee()\">Add</button>\n                </form>\n            </div>\n        </div>\n    </div>\n\n\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Employee List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Email</th>\n                    <th>Actions</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let emp of empList;let i = index\">\n                    <td>{{emp.name}}</td>\n                    <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <!-- <div class=\"row\">\n        <div *ngFor=\"let p of posts;\">\n            <div>{{p.title}}</div>\n        </div>\n    </div> -->\n</div>\n<employee-detail [empData]=\"selectedEmp\"></employee-detail>"
 
 /***/ }),
 
@@ -254,7 +256,6 @@ var EmpListComponent = /** @class */ (function () {
     function EmpListComponent(toastr, empService) {
         this.toastr = toastr;
         this.empService = empService;
-        this.posts = [];
         this.empList = [];
         this.model = {
             name: "",
@@ -264,13 +265,11 @@ var EmpListComponent = /** @class */ (function () {
     // empList = EMP;
     EmpListComponent.prototype.ngOnInit = function () {
         this.getEmployees();
-        this.getData();
     };
-    EmpListComponent.prototype.getData = function () {
-        var _this = this;
-        this.empService.getAllPosts()
-            .subscribe(function (posts) { return _this.posts = posts; });
-    };
+    // getData(): void {
+    //     this.empService.getAllPosts()
+    //     .subscribe(posts => this.posts = posts);
+    // }
     EmpListComponent.prototype.getEmployees = function () {
         var _this = this;
         console.log("in  getEmployees function");
@@ -359,13 +358,6 @@ var EmpService = /** @class */ (function () {
         console.log("send data from obn", __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
         return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
     };
-    // getHeroes(): Employee[] {
-    //     return EMP;
-    // }
-    EmpService.prototype.getAllPosts = function () {
-        return this.http.get('/api/posts')
-            .map(function (res) { return res || []; });
-    };
     EmpService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
@@ -373,7 +365,6 @@ var EmpService = /** @class */ (function () {
     return EmpService;
 }());
 
-// .map(res => res.json()); 
 
 
 /***/ }),
@@ -388,6 +379,141 @@ var EMP = [
     { name: 'Sneha', email: 'sneha@yopmail.com' },
     { name: 'Mr. Nice', email: 'nice@yopmail.com' },
 ];
+
+
+/***/ }),
+
+/***/ "./src/app/components/header-bar/header-bar.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n        <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n          aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n    \n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n              <a class=\"nav-link\" href=\"#\">Home\n                <span class=\"sr-only\">(current)</span>\n              </a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink=\"/posts\">Posts</a>\n            </li>\n            <li class=\"nav-item dropdown\">\n              <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                aria-expanded=\"false\">\n                Dropdown\n              </a>\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                <a class=\"dropdown-item\" routerLink=\"/posts\">Posts</a>\n                <!-- <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                <div class=\"dropdown-divider\"></div>\n                <a class=\"dropdown-item\" href=\"#\">Something else here</a> -->\n              </div>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link disabled\" href=\"#\">Disabled</a>\n            </li>\n          </ul>\n          <form class=\"form-inline my-2 my-lg-0\">\n            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n          </form>\n        </div>\n      </nav>"
+
+/***/ }),
+
+/***/ "./src/app/components/header-bar/header-bar.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HeaderBarComponent = /** @class */ (function () {
+    function HeaderBarComponent() {
+        console.log('in header bar component');
+    }
+    HeaderBarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'header-bar-component',
+            template: __webpack_require__("./src/app/components/header-bar/header-bar.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], HeaderBarComponent);
+    return HeaderBarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/posts/posts.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Post List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Id</th>\n                    <th>Title</th>\n                    <!-- <th>Email</th>\n                    <th>Actions</th> -->\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let post of posts;let i = index\">\n                    <td>{{post.id}}</td>\n                    <td>{{post.title}}</td>\n                    <!-- <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td> -->\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/posts/posts.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PostListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__posts_service__ = __webpack_require__("./src/app/components/posts/posts.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PostListComponent = /** @class */ (function () {
+    function PostListComponent(toastr, postService) {
+        this.toastr = toastr;
+        this.postService = postService;
+        console.log('in post component');
+    }
+    PostListComponent.prototype.ngOnInit = function () {
+        this.getAllPosts();
+    };
+    PostListComponent.prototype.getAllPosts = function () {
+        var _this = this;
+        this.postService.getAllPosts()
+            .subscribe(function (posts) { return _this.posts = posts; });
+    };
+    PostListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
+            selector: 'posts-list',
+            template: __webpack_require__("./src/app/components/posts/posts.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ngx_toastr__["b" /* ToastrService */], __WEBPACK_IMPORTED_MODULE_2__posts_service__["a" /* PostService */]])
+    ], PostListComponent);
+    return PostListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/posts/posts.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PostService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PostService = /** @class */ (function () {
+    function PostService(http) {
+        this.http = http;
+    }
+    PostService.prototype.getAllPosts = function () {
+        return this.http.get('/api/posts')
+            .map(function (res) { return res || []; });
+    };
+    PostService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], PostService);
+    return PostService;
+}());
+
 
 
 /***/ }),

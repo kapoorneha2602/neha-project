@@ -1,27 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { EmpListComponent } from './components/employees/employee.component';
 import { EmpDetailComponent } from './components/employee-detail/employee-detail.component';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+
 
 import { FormsModule } from '@angular/forms';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
 
 import { EmpService } from './components/employees/employee.service';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { HttpClientModule }    from '@angular/common/http';
+import { PostListComponent } from './components/posts/posts.component';
+import { PostService } from './components/posts/posts.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpListComponent,
-    EmpDetailComponent
+    EmpDetailComponent,
+    HeaderBarComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { HttpClientModule }    from '@angular/common/http';
     AppRoutingModule, // ToastrModule added
     HttpClientModule
   ],
-  providers: [EmpService],
+  providers: [EmpService,PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

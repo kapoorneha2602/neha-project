@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- List of Employees -->
+    <div class="row mt-2">
+        <h4>Post List</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <!-- <th>Email</th>
+                    <th>Actions</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts;let i = index">
+                    <td>{{post.id}}</td>
+                    <td>{{post.title}}</td>
+                    <!-- <td>{{emp.email}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" routerLink="/empDetail" (click)="selectEmp(emp)">Detail</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteEmp(i)">Delete</button>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

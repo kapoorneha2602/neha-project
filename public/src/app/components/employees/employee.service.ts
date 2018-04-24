@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
 
-import { Post } from './posts';
-
-
-
-
 import { EMP } from './mock-employees';
 
 import { Observable } from 'rxjs/Observable';
@@ -20,7 +15,6 @@ export class EmpService {
 
     constructor(  private http: HttpClient) { }
 
-
     getHeroes(): Observable<Employee[]> {
         console.log("send data from obn", EMP);
         return of(EMP);
@@ -30,17 +24,15 @@ export class EmpService {
     //     return EMP;
     // }
 
-    getAllPosts(): Observable<Post[]> {
+    // getAllPosts(): Observable<Post[]> {
     
-        return this.http.get('/api/posts')
+    //     return this.http.get('/api/posts')
 
-        .map(res => res as Post[] || []); 
+    //     .map(res => res as Post[] || []); 
           
           
-    }
+    // }
 
 
 
 }
-
-// .map(res => res.json());
