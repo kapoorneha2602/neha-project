@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { EmpService } from './components/employees/employee.service';
 import { AppRoutingModule } from './/app-routing.module';
 
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), AppRoutingModule, // ToastrModule added
+    ToastrModule.forRoot(), 
+    AppRoutingModule, // ToastrModule added
+    HttpClientModule
   ],
   providers: [EmpService],
   bootstrap: [AppComponent]

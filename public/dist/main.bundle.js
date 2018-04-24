@@ -128,12 +128,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -158,7 +160,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__["a" /* ToastrModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__["a" /* ToastrModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__["a" /* EmpService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
@@ -222,7 +226,7 @@ var EmpDetailComponent = /** @class */ (function () {
 /***/ "./src/app/components/employees/employee.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n    <!-- Add Employee -->\n    <div class=\"row\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <form #empForm=\"ngForm\" class=\"form-inline\">\n                    <div class=\"form-group mb-2\">\n                        <input type=\"text\" class=\"form-control w100\" id=\"name\" required [(ngModel)]=\"model.name\" name=\"name\" placeholder=\"Name\" #name=\"ngModel\">\n                        <span [hidden]=\"name.valid || name.pristine\" class=\"p-2 alert-danger rounded\"> Name is required\n                        </span>\n                    </div>\n                    <div class=\"form-group mx-sm-3 mb-2\">\n                        <input type=\"text\" placeholder=\"Email\" id=\"email\" required [(ngModel)]=\"model.email\" name=\"email\" class=\"form-control w100\"\n                            #email=\"ngModel\">\n                        <div class=\"form-control\" [hidden]=\"email.valid || email.pristine\" class=\"p-2 alert-danger rounded\">\n                            Email is required\n                        </div>\n                    </div>\n                    <button type=\"button\" [disabled]=\"!empForm.form.valid\" class=\"btn btn-primary mb-2\" (click)=\"addEmployee()\">Add</button>\n                </form>\n            </div>\n        </div>\n    </div>\n\n\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Employee List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Email</th>\n                    <th>Actions</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let emp of empList;let i = index\">\n                    <td>{{emp.name}}</td>\n                    <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<employee-detail [empData]=\"selectedEmp\"></employee-detail>\n\n"
+module.exports = "<div class=\"container\">\n    <!-- Add Employee -->\n    <div class=\"row\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <form #empForm=\"ngForm\" class=\"form-inline\">\n                    <div class=\"form-group mb-2\">\n                        <input type=\"text\" class=\"form-control w100\" id=\"name\" required [(ngModel)]=\"model.name\" name=\"name\" placeholder=\"Name\" #name=\"ngModel\">\n                        <span [hidden]=\"name.valid || name.pristine\" class=\"p-2 alert-danger rounded\"> Name is required\n                        </span>\n                    </div>\n                    <div class=\"form-group mx-sm-3 mb-2\">\n                        <input type=\"text\" placeholder=\"Email\" id=\"email\" required [(ngModel)]=\"model.email\" name=\"email\" class=\"form-control w100\"\n                            #email=\"ngModel\">\n                        <div class=\"form-control\" [hidden]=\"email.valid || email.pristine\" class=\"p-2 alert-danger rounded\">\n                            Email is required\n                        </div>\n                    </div>\n                    <button type=\"button\" [disabled]=\"!empForm.form.valid\" class=\"btn btn-primary mb-2\" (click)=\"addEmployee()\">Add</button>\n                </form>\n            </div>\n        </div>\n    </div>\n\n\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Employee List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Email</th>\n                    <th>Actions</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let emp of empList;let i = index\">\n                    <td>{{emp.name}}</td>\n                    <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" routerLink=\"/empDetail\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div class=\"row\">\n        <div *ngFor=\"let p of posts;\">\n            <div>{{p.title}}</div>\n        </div>\n    </div>\n</div>\n<employee-detail [empData]=\"selectedEmp\"></employee-detail>"
 
 /***/ }),
 
@@ -250,6 +254,7 @@ var EmpListComponent = /** @class */ (function () {
     function EmpListComponent(toastr, empService) {
         this.toastr = toastr;
         this.empService = empService;
+        this.posts = [];
         this.empList = [];
         this.model = {
             name: "",
@@ -259,12 +264,16 @@ var EmpListComponent = /** @class */ (function () {
     // empList = EMP;
     EmpListComponent.prototype.ngOnInit = function () {
         this.getEmployees();
+        this.getData();
     };
-    //   getEmployees(): void {
-    //     this.empList = this.empService.getHeroes();
-    // }
+    EmpListComponent.prototype.getData = function () {
+        var _this = this;
+        this.empService.getAllPosts()
+            .subscribe(function (posts) { return _this.posts = posts; });
+    };
     EmpListComponent.prototype.getEmployees = function () {
         var _this = this;
+        console.log("in  getEmployees function");
         this.empService.getHeroes()
             .subscribe(function (empList) { return _this.empList = empList; });
     };
@@ -325,6 +334,8 @@ var EmpListComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_employees__ = __webpack_require__("./src/app/components/employees/mock-employees.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__("./node_modules/rxjs/_esm5/observable/of.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -337,20 +348,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import { Http } from '@angular/http';
+
+
 var EmpService = /** @class */ (function () {
-    function EmpService() {
+    function EmpService(http) {
+        this.http = http;
     }
     EmpService.prototype.getHeroes = function () {
         console.log("send data from obn", __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
         return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
     };
+    // getHeroes(): Employee[] {
+    //     return EMP;
+    // }
+    EmpService.prototype.getAllPosts = function () {
+        return this.http.get('/api/posts')
+            .map(function (res) { return res || []; });
+    };
     EmpService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], EmpService);
     return EmpService;
 }());
 
+// .map(res => res.json()); 
 
 
 /***/ }),

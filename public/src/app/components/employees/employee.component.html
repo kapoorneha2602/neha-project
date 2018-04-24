@@ -1,4 +1,3 @@
-
 <div class="container">
     <!-- Add Employee -->
     <div class="row">
@@ -40,13 +39,17 @@
                     <td>{{emp.name}}</td>
                     <td>{{emp.email}}</td>
                     <td>
-                        <button type="button" class="btn btn-success" (click)="selectEmp(emp)">Detail</button>
+                        <button type="button" class="btn btn-success" routerLink="/empDetail" (click)="selectEmp(emp)">Detail</button>
                         <button type="button" class="btn btn-danger" (click)="deleteEmp(i)">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <div class="row">
+        <div *ngFor="let p of posts;">
+            <div>{{p.title}}</div>
+        </div>
+    </div>
 </div>
 <employee-detail [empData]="selectedEmp"></employee-detail>
-

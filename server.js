@@ -4,6 +4,16 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+// var mongodb = require("mongodb");
+var mongoose = require('mongoose');
+
+// mongoose.connect('mongodb://localhost/myDb', function (err) {
+//   if (err) {
+//     console.log('Error in connection data with db', err);
+//     throw err
+//   };
+// });
+
 // Get our API routes
 const api = require('./backend/routes/api');
 
@@ -27,13 +37,13 @@ app.get('*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '3008';
+const port = process.env.PORT || '3009';
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
