@@ -3,19 +3,32 @@ import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { EmpDetailComponent } from '../employee-detail/employee-detail.component';
 import { EMP } from './mock-employees';
+import { EmpService } from './employee.service';
+import { Employee } from './employee';
+
 @Component({
     selector: 'employee-list',
     templateUrl: './employee.component.html'
 })
 export class EmpListComponent {
     selectedEmp: any;
+    empList = [];
 
-    constructor(private toastr: ToastrService) { }
+    constructor(private toastr: ToastrService, private empService: EmpService) { }
     model = {
         name: "",
         email: ""
     }
-    empList = EMP;
+    // empList = EMP;
+    ngOnInit() {
+        this.getEmployees();
+      }
+
+      getEmployees(): void {
+        this.empList = this.empService.getHeroes();
+        console.log("in get getEmployees func",this.empList);
+    }
+
     // empList = [
     //     {
     //         "name": "Neha",

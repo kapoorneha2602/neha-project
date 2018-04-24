@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 
+import { EmpService } from './components/employees/employee.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [EmpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -75,12 +75,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -105,7 +107,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__["a" /* ToastrModule */].forRoot(),
             ],
-            providers: [],
+            providers: [__WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__["a" /* EmpService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -178,7 +180,7 @@ module.exports = "\n<div class=\"container\">\n    <!-- Add Employee -->\n    <d
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mock_employees__ = __webpack_require__("./src/app/components/employees/mock-employees.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -192,14 +194,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var EmpListComponent = /** @class */ (function () {
-    function EmpListComponent(toastr) {
+    function EmpListComponent(toastr, empService) {
         this.toastr = toastr;
+        this.empService = empService;
+        this.empList = [];
         this.model = {
             name: "",
             email: ""
         };
-        this.empList = __WEBPACK_IMPORTED_MODULE_2__mock_employees__["a" /* EMP */];
     }
+    // empList = EMP;
+    EmpListComponent.prototype.ngOnInit = function () {
+        this.getEmployees();
+    };
+    EmpListComponent.prototype.getEmployees = function () {
+        this.empList = this.empService.getHeroes();
+        console.log("in get getEmployees func", this.empList);
+    };
     // empList = [
     //     {
     //         "name": "Neha",
@@ -240,9 +251,50 @@ var EmpListComponent = /** @class */ (function () {
             selector: 'employee-list',
             template: __webpack_require__("./src/app/components/employees/employee.component.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ngx_toastr__["b" /* ToastrService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ngx_toastr__["b" /* ToastrService */], __WEBPACK_IMPORTED_MODULE_2__employee_service__["a" /* EmpService */]])
     ], EmpListComponent);
     return EmpListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/employees/employee.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_employees__ = __webpack_require__("./src/app/components/employees/mock-employees.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var EmpService = /** @class */ (function () {
+    function EmpService() {
+    }
+    //   getHeroes(): Observable<Hero[]> {
+    //     // TODO: send the message _after_ fetching the heroes
+    //     this.messageService.add('HeroService: fetched heroes');
+    //     return of(HEROES);
+    //   }
+    EmpService.prototype.getHeroes = function () {
+        console.log("in service it will return", __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
+        return __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */];
+    };
+    EmpService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], EmpService);
+    return EmpService;
 }());
 
 
@@ -255,9 +307,9 @@ var EmpListComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EMP; });
 var EMP = [
+    { name: 'Neha', email: 'neha@yopmail.com' },
+    { name: 'Sneha', email: 'sneha@yopmail.com' },
     { name: 'Mr. Nice', email: 'nice@yopmail.com' },
-    { name: 'Mr. Tice', email: 'tice@yopmail.com' },
-    { name: 'Mr. Slice', email: 'slnice@yopmail.com' },
 ];
 
 
