@@ -22,11 +22,15 @@ export class EmpListComponent {
     // empList = EMP;
     ngOnInit() {
         this.getEmployees();
-      }
+    }
 
-      getEmployees(): void {
-        this.empList = this.empService.getHeroes();
-        console.log("in get getEmployees func",this.empList);
+    //   getEmployees(): void {
+    //     this.empList = this.empService.getHeroes();
+    // }
+
+    getEmployees(): void {
+        this.empService.getHeroes()
+            .subscribe(empList => this.empList = empList);
     }
 
     // empList = [

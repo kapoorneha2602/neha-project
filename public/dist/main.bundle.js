@@ -17,6 +17,57 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/app-routing.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_employees_employee_component__ = __webpack_require__("./src/app/components/employees/employee.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__ = __webpack_require__("./src/app/components/employee-detail/employee-detail.component.ts");
+// import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+// @NgModule({
+//   imports: [
+//     CommonModule
+//   ],
+//   declarations: []
+// })
+// export class AppRoutingModule { }
+
+
+
+
+var routes = [
+    { path: '', redirectTo: '/emp', pathMatch: 'full' },
+    { path: 'emp', component: __WEBPACK_IMPORTED_MODULE_2__components_employees_employee_component__["a" /* EmpListComponent */] },
+    { path: 'empDetail', component: __WEBPACK_IMPORTED_MODULE_3__components_employee_detail_employee_detail_component__["a" /* EmpDetailComponent */] }
+    // { path: 'detail/:id', component: HeroDetailComponent },
+    // { path: 'heroes', component: HeroesComponent }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
@@ -27,7 +78,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n<employee-list></employee-list>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n<!-- <employee-list></employee-list> -->\n\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -49,7 +100,7 @@ var AppComponent = /** @class */ (function () {
         this.title = 'Employee Portal';
     }
     AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
@@ -76,6 +127,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -91,11 +143,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_3__components_employees_employee_component__["a" /* EmpListComponent */],
@@ -105,7 +158,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__["a" /* ToastrModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_7_ngx_toastr__["a" /* ToastrModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_8__components_employees_employee_service__["a" /* EmpService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
@@ -149,11 +202,11 @@ var EmpDetailComponent = /** @class */ (function () {
         console.log('in detail compoent the  data is');
     }
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["D" /* Input */])(),
         __metadata("design:type", Object)
     ], EmpDetailComponent.prototype, "empData", void 0);
     EmpDetailComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
             selector: 'employee-detail',
             template: __webpack_require__("./src/app/components/employee-detail/employee-detail.component.html")
         }),
@@ -207,9 +260,13 @@ var EmpListComponent = /** @class */ (function () {
     EmpListComponent.prototype.ngOnInit = function () {
         this.getEmployees();
     };
+    //   getEmployees(): void {
+    //     this.empList = this.empService.getHeroes();
+    // }
     EmpListComponent.prototype.getEmployees = function () {
-        this.empList = this.empService.getHeroes();
-        console.log("in get getEmployees func", this.empList);
+        var _this = this;
+        this.empService.getHeroes()
+            .subscribe(function (empList) { return _this.empList = empList; });
     };
     // empList = [
     //     {
@@ -247,7 +304,7 @@ var EmpListComponent = /** @class */ (function () {
         this.selectedEmp = data;
     };
     EmpListComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'employee-list',
             template: __webpack_require__("./src/app/components/employees/employee.component.html")
         }),
@@ -267,6 +324,7 @@ var EmpListComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_employees__ = __webpack_require__("./src/app/components/employees/mock-employees.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__("./node_modules/rxjs/_esm5/observable/of.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -278,20 +336,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var EmpService = /** @class */ (function () {
     function EmpService() {
     }
-    //   getHeroes(): Observable<Hero[]> {
-    //     // TODO: send the message _after_ fetching the heroes
-    //     this.messageService.add('HeroService: fetched heroes');
-    //     return of(HEROES);
-    //   }
     EmpService.prototype.getHeroes = function () {
-        console.log("in service it will return", __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
-        return __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */];
+        console.log("send data from obn", __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
+        return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
     };
     EmpService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [])
     ], EmpService);
     return EmpService;
@@ -345,7 +399,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });

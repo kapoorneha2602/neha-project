@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 import { EmpService } from './components/employees/employee.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { EmpService } from './components/employees/employee.service';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(), AppRoutingModule, // ToastrModule added
   ],
   providers: [EmpService],
   bootstrap: [AppComponent]
