@@ -8,12 +8,14 @@ import { EMP } from './mock-employees';
     templateUrl: './employee.component.html'
 })
 export class EmpListComponent {
-    constructor(private toastr: ToastrService) {}
+    selectedEmp: any;
+
+    constructor(private toastr: ToastrService) { }
     model = {
         name: "",
         email: ""
     }
-    empList=EMP;
+    empList = EMP;
     // empList = [
     //     {
     //         "name": "Neha",
@@ -45,5 +47,9 @@ export class EmpListComponent {
     deleteEmp(index) {
         this.empList.splice(index, 1); //array.splice(index, howmany, item1, ....., itemX)
         this.toastr.success('Employee Record Deleted Successfully');
+    }
+    selectEmp(data) {
+        console.log("select emp is", data);
+        this.selectedEmp = data;
     }
 }

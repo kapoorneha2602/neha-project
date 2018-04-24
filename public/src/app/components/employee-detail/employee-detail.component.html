@@ -1,1 +1,8 @@
 in emp detail
+
+<!-- Detail of Selected Employee -->
+<div *ngIf="empData" class="row mt-2">
+    <h2>{{ empData.name | uppercase }} Details</h2>
+    <div>
+        <span>Email </span>{{empData.email}}</div>
+</div>

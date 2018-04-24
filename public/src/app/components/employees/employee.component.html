@@ -1,4 +1,4 @@
-hello <employee-detail></employee-detail> in emp detail
+
 <div class="container">
     <!-- Add Employee -->
     <div class="row">
@@ -22,6 +22,8 @@ hello <employee-detail></employee-detail> in emp detail
             </div>
         </div>
     </div>
+
+
     <!-- List of Employees -->
     <div class="row mt-2">
         <h4>Employee List</h4>
@@ -38,6 +40,7 @@ hello <employee-detail></employee-detail> in emp detail
                     <td>{{emp.name}}</td>
                     <td>{{emp.email}}</td>
                     <td>
+                        <button type="button" class="btn btn-success" (click)="selectEmp(emp)">Detail</button>
                         <button type="button" class="btn btn-danger" (click)="deleteEmp(i)">Delete</button>
                     </td>
                 </tr>
@@ -45,4 +48,5 @@ hello <employee-detail></employee-detail> in emp detail
         </table>
     </div>
 </div>
+<employee-detail [empData]="selectedEmp"></employee-detail>
 

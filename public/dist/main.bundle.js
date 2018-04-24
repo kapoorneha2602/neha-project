@@ -119,7 +119,7 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/components/employee-detail/employee-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "in emp detail"
+module.exports = "in emp detail\n\n<!-- Detail of Selected Employee -->\n<div *ngIf=\"empData\" class=\"row mt-2\">\n    <h2>{{ empData.name | uppercase }} Details</h2>\n    <div>\n        <span>Email </span>{{empData.email}}</div>\n</div>"
 
 /***/ }),
 
@@ -128,8 +128,8 @@ module.exports = "in emp detail"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpDetailComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -144,13 +144,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var EmpDetailComponent = /** @class */ (function () {
     function EmpDetailComponent(toastr) {
         this.toastr = toastr;
+        console.log('in detail compoent the  data is');
     }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Input */])(),
+        __metadata("design:type", Object)
+    ], EmpDetailComponent.prototype, "empData", void 0);
     EmpDetailComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'employee-detail',
             template: __webpack_require__("./src/app/components/employee-detail/employee-detail.component.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ngx_toastr__["b" /* ToastrService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ngx_toastr__["b" /* ToastrService */]])
     ], EmpDetailComponent);
     return EmpDetailComponent;
 }());
@@ -162,7 +167,7 @@ var EmpDetailComponent = /** @class */ (function () {
 /***/ "./src/app/components/employees/employee.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "hello <employee-detail></employee-detail> in emp detail\n<div class=\"container\">\n    <!-- Add Employee -->\n    <div class=\"row\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <form #empForm=\"ngForm\" class=\"form-inline\">\n                    <div class=\"form-group mb-2\">\n                        <input type=\"text\" class=\"form-control w100\" id=\"name\" required [(ngModel)]=\"model.name\" name=\"name\" placeholder=\"Name\" #name=\"ngModel\">\n                        <span [hidden]=\"name.valid || name.pristine\" class=\"p-2 alert-danger rounded\"> Name is required\n                        </span>\n                    </div>\n                    <div class=\"form-group mx-sm-3 mb-2\">\n                        <input type=\"text\" placeholder=\"Email\" id=\"email\" required [(ngModel)]=\"model.email\" name=\"email\" class=\"form-control w100\"\n                            #email=\"ngModel\">\n                        <div class=\"form-control\" [hidden]=\"email.valid || email.pristine\" class=\"p-2 alert-danger rounded\">\n                            Email is required\n                        </div>\n                    </div>\n                    <button type=\"button\" [disabled]=\"!empForm.form.valid\" class=\"btn btn-primary mb-2\" (click)=\"addEmployee()\">Add</button>\n                </form>\n            </div>\n        </div>\n    </div>\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Employee List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Email</th>\n                    <th>Actions</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let emp of empList;let i = index\">\n                    <td>{{emp.name}}</td>\n                    <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n"
+module.exports = "\n<div class=\"container\">\n    <!-- Add Employee -->\n    <div class=\"row\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <form #empForm=\"ngForm\" class=\"form-inline\">\n                    <div class=\"form-group mb-2\">\n                        <input type=\"text\" class=\"form-control w100\" id=\"name\" required [(ngModel)]=\"model.name\" name=\"name\" placeholder=\"Name\" #name=\"ngModel\">\n                        <span [hidden]=\"name.valid || name.pristine\" class=\"p-2 alert-danger rounded\"> Name is required\n                        </span>\n                    </div>\n                    <div class=\"form-group mx-sm-3 mb-2\">\n                        <input type=\"text\" placeholder=\"Email\" id=\"email\" required [(ngModel)]=\"model.email\" name=\"email\" class=\"form-control w100\"\n                            #email=\"ngModel\">\n                        <div class=\"form-control\" [hidden]=\"email.valid || email.pristine\" class=\"p-2 alert-danger rounded\">\n                            Email is required\n                        </div>\n                    </div>\n                    <button type=\"button\" [disabled]=\"!empForm.form.valid\" class=\"btn btn-primary mb-2\" (click)=\"addEmployee()\">Add</button>\n                </form>\n            </div>\n        </div>\n    </div>\n\n\n    <!-- List of Employees -->\n    <div class=\"row mt-2\">\n        <h4>Employee List</h4>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Email</th>\n                    <th>Actions</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let emp of empList;let i = index\">\n                    <td>{{emp.name}}</td>\n                    <td>{{emp.email}}</td>\n                    <td>\n                        <button type=\"button\" class=\"btn btn-success\" (click)=\"selectEmp(emp)\">Detail</button>\n                        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteEmp(i)\">Delete</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<employee-detail [empData]=\"selectedEmp\"></employee-detail>\n\n"
 
 /***/ }),
 
@@ -225,6 +230,10 @@ var EmpListComponent = /** @class */ (function () {
     EmpListComponent.prototype.deleteEmp = function (index) {
         this.empList.splice(index, 1); //array.splice(index, howmany, item1, ....., itemX)
         this.toastr.success('Employee Record Deleted Successfully');
+    };
+    EmpListComponent.prototype.selectEmp = function (data) {
+        console.log("select emp is", data);
+        this.selectedEmp = data;
     };
     EmpListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
