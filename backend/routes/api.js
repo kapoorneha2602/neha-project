@@ -1,12 +1,4 @@
-// const express = require('express');
-// const router = express.Router();
 
-// /* GET api listing. */
-// router.get('/api', (req, res) => {
-//   res.send('api works');
-// });
-
-// module.exports = router;
 
 const express = require('express');
 const router = express.Router();
@@ -14,6 +6,8 @@ const router = express.Router();
 // declare axios for making http requests
 const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
+
+var empSchema = require('../models/emp.js');
 
 /* GET api listing. */
 router.get('/', (req, res) => {
@@ -39,25 +33,48 @@ router.get('/posts', (req, res) => {
 
 // Get json data
 router.get('/department', (req, res) => {
-  let arr=[
+  let arr = [
     {
-      id:1,
-      owner:"Amit",
-      name:"Finance"
+      id: 1,
+      owner: "Amit",
+      name: "Finance"
     },
     {
-      id:2,
-      owner:"Rohit",
-      name:"Engineer"
+      id: 2,
+      owner: "Rohit",
+      name: "Engineer"
     }
     ,
     {
-      id:3,
-      owner:"Mohit",
-      name:"Manager"
+      id: 3,
+      owner: "Mohit",
+      name: "Manager"
     }
   ];
   res.send(arr);
 });
+
+/* ADD EMPLOYEE */
+router.post("/addEmployee", (req, res) => {
+  empSchema.create()
+    .then(item => {
+      res.send("item saved to database");
+    })
+    .catch(err => {
+      res.status(400).send("unable to save to database");
+    });
+});
+
+
+/* GET ALL EMPLOYEES */
+router.get('/getAllEmployees', function(req, res, next) {
+  empSchema.find(function (err, empData) {
+    console.log('the empdataa send is',empData);
+    if (err) return next(err);
+    res.json(empData);
+  });
+});
+
+
 
 module.exports = router;

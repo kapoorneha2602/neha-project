@@ -342,6 +342,7 @@ module.exports = "<div class=\"container\">\n    <!-- Add Employee -->\n    <div
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_toastr__ = __webpack_require__("./node_modules/ngx-toastr/esm5/ngx-toastr.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__employee_service__ = __webpack_require__("./src/app/components/employees/employee.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -354,30 +355,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var EmpListComponent = /** @class */ (function () {
-    function EmpListComponent(toastr, empService) {
+    function EmpListComponent(toastr, empService, http) {
         this.toastr = toastr;
         this.empService = empService;
+        this.http = http;
         this.empList = [];
         this.model = {
             name: "",
             email: ""
         };
     }
-    // empList = EMP;
     EmpListComponent.prototype.ngOnInit = function () {
         this.getEmployees();
     };
-    // getData(): void {
-    //     this.empService.getAllPosts()
-    //     .subscribe(posts => this.posts = posts);
-    // }
     EmpListComponent.prototype.getEmployees = function () {
         var _this = this;
         console.log("in  getEmployees function");
         this.empService.getHeroes()
             .subscribe(function (empList) { return _this.empList = empList; });
     };
+    // getEmployees(): Observable<IPosts[]> {
+    //     this.http.get('/getAllEmployees').subscribe(data => {
+    //         this.empList = data;
+    //       });
+    //     //   getPosts(): Observable<IPosts[]> {
+    //     //     return this.http
+    //     //         .get(this._postsURL)
+    //     //         .map((response: Response) => {
+    //     //             return <IPosts[]>response.json();
+    //     //         })
+    //     //         .catch(this.handleError);
+    //     // }
+    // }
     // empList = [
     //     {
     //         "name": "Neha",
@@ -400,7 +411,17 @@ var EmpListComponent = /** @class */ (function () {
     //------------- Function to Add Employee-------------
     //---------------------------------------------------
     EmpListComponent.prototype.addEmployee = function () {
-        this.empList.push({ "name": this.model.name, "email": this.model.email });
+        var _this = this;
+        var obj = { "name": this.model.name, "email": this.model.email };
+        this.http.post('/api/addEmployee', obj)
+            .subscribe(function (res) {
+            console.log(res, "is the result");
+            if (res) {
+                _this.toastr.success('Employee Record Added Successfully');
+            }
+        }, function (err) {
+            console.log(err);
+        });
     };
     //---------------------------------------------------
     //------------- Function to Delete Employee----------
@@ -418,7 +439,7 @@ var EmpListComponent = /** @class */ (function () {
             selector: 'employee-list',
             template: __webpack_require__("./src/app/components/employees/employee.component.html")
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ngx_toastr__["b" /* ToastrService */], __WEBPACK_IMPORTED_MODULE_2__employee_service__["a" /* EmpService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ngx_toastr__["b" /* ToastrService */], __WEBPACK_IMPORTED_MODULE_2__employee_service__["a" /* EmpService */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], EmpListComponent);
     return EmpListComponent;
 }());
@@ -433,10 +454,11 @@ var EmpListComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_employees__ = __webpack_require__("./src/app/components/employees/mock-employees.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__("./node_modules/rxjs/_esm5/observable/of.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__ = __webpack_require__("./node_modules/rxjs/_esm5/add/observable/throw.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -448,39 +470,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 // import { Http } from '@angular/http';
+
+
 
 
 var EmpService = /** @class */ (function () {
     function EmpService(http) {
         this.http = http;
     }
+    // getHeroes(): Observable<Employee[]> {
+    //     console.log("send data from obn", EMP);
+    //     return of(EMP);
+    // }
     EmpService.prototype.getHeroes = function () {
-        console.log("send data from obn", __WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
-        return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_1__mock_employees__["a" /* EMP */]);
+        // return this.http
+        //     .get('/api/getAllEmployees')
+        //     .map((response: Response) => {
+        //         return <Employee[]>response.json();
+        //     })
+        //     .catch(this.handleError);
+        return this.http.get('/api/getAllEmployees')
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */].throw('Server error'); });
     };
     EmpService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], EmpService);
     return EmpService;
 }());
 
-
-
-/***/ }),
-
-/***/ "./src/app/components/employees/mock-employees.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EMP; });
-var EMP = [
-    { name: 'Neha', email: 'neha@yopmail.com' },
-    { name: 'Sneha', email: 'sneha@yopmail.com' },
-    { name: 'Mr. Nice', email: 'nice@yopmail.com' },
-];
 
 
 /***/ }),

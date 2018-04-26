@@ -5,43 +5,47 @@ import { EmpDetailComponent } from '../employee-detail/employee-detail.component
 import { EMP } from './mock-employees';
 import { EmpService } from './employee.service';
 import { Employee } from './employee';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
     selector: 'employee-list',
     templateUrl: './employee.component.html'
 })
 export class EmpListComponent {
-    // posts: any = [];
     selectedEmp: any;
     empList = [];
-
-    constructor(private toastr: ToastrService, private empService: EmpService) { }
+    constructor(private toastr: ToastrService, private empService: EmpService, private http: HttpClient) { }
     model = {
         name: "",
         email: ""
     }
-    // empList = EMP;
     ngOnInit() {
         this.getEmployees();
     }
-
-
-
-    // getData(): void {
-
-
-    //     this.empService.getAllPosts()
-    //     .subscribe(posts => this.posts = posts);
-
-
-    // }
-
-
     getEmployees(): void {
         console.log("in  getEmployees function");
         this.empService.getHeroes()
             .subscribe(empList => this.empList = empList);
     }
+
+    
+
+    // getEmployees(): Observable<IPosts[]> {
+
+    //     this.http.get('/getAllEmployees').subscribe(data => {
+    //         this.empList = data;
+    //       });
+
+    //     //   getPosts(): Observable<IPosts[]> {
+    //     //     return this.http
+    //     //         .get(this._postsURL)
+    //     //         .map((response: Response) => {
+    //     //             return <IPosts[]>response.json();
+    //     //         })
+    //     //         .catch(this.handleError);
+    //     // }
+    
+   
+    // }
 
     // empList = [
     //     {
@@ -66,7 +70,17 @@ export class EmpListComponent {
     //------------- Function to Add Employee-------------
     //---------------------------------------------------
     addEmployee() {
-        this.empList.push({ "name": this.model.name, "email": this.model.email });
+        let obj = { "name": this.model.name, "email": this.model.email };
+        this.http.post('/api/addEmployee', obj)
+            .subscribe(res => {
+                console.log(res, "is the result");
+                if (res) {
+                    this.toastr.success('Employee Record Added Successfully');
+                }
+            }, (err) => {
+                console.log(err);
+            }
+            );
     }
     //---------------------------------------------------
     //------------- Function to Delete Employee----------

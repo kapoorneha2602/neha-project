@@ -7,12 +7,14 @@ const bodyParser = require('body-parser');
 // var mongodb = require("mongodb");
 var mongoose = require('mongoose');
 
-// mongoose.connect('mongodb://localhost/myDb', function (err) {
-//   if (err) {
-//     console.log('Error in connection data with db', err);
-//     throw err
-//   };
-// });
+mongoose.connect('mongodb://localhost/myDb', function (err) {
+  if (err) {
+    console.log('Error in connection data with db', err);
+    throw err
+  }else{
+    console.log('Db connected successfully');
+  }
+});
 
 // Get our API routes
 const api = require('./backend/routes/api');
