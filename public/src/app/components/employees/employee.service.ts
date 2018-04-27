@@ -29,9 +29,16 @@ export class EmpService {
         //         return <Employee[]>response.json();
         //     })
         //     .catch(this.handleError);
-        return this.http.get('/api/getAllEmployees')
-        .map((res : Response) => res.json())
-        .catch((error : any) => Observable.throw('Server error'));
+        // return this.http.get('/api/getAllEmployees')
+        // .map((res : Response) => res.json())
+        // .catch((error : any) => Observable.throw('Server error'));
+
+
+        // getHeroes (): Observable<Hero[]> {
+            return this.http.get<Employee[]>('/api/getAllEmployees')
+        //   }
+
+
     }
 
 
